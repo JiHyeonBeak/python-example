@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-day Counter</title>
+    <link
+    rel="stylesheet"
+    href="https://pyscript.net/releases/2023.11.2/core.css"/>
+    <script
+    type="module"
+    src="https://pyscript.net/releases/2023.11.2/core.js">
+    </script>
+</head>
+<body>
+    <script type="py">
+        from pyscript import display
+        from datetime import date
+        hiredDay = date(2022, 12, 19)
+        today = date.today()
+        result = today - hiredDay
+
+        display(hiredDay.isoformat(),target="day1",append=False)
+        display(today.isoformat(),target="today",append=False)
+        display(result.days,target="gap",append=False)
+        
+    </script>
+    <div>When I was... <label id="day1"></label></div>
+    <div>Current Day... <label id="today"></label></div>
+    <div>Calculation gap... <label id="gap"></label></div>
+</body>
+</html>
