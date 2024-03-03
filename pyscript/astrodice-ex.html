@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dduddy's digital astrodice</title>
+    <link
+    rel="stylesheet"
+    href="https://pyscript.net/releases/2023.11.2/core.css"/>
+    <script
+    type="module"
+    src="https://pyscript.net/releases/2023.11.2/core.js">
+    </script>
+</head>
+<body>
+    <button id="rolladie" py-click="rollDie">Roll a dice!</button>
+    <div>what kind of house?  <label id="house"></label></div>
+    <div>what about the planet? <label id="planet"></label></div>
+    <div>what about the sign? <label id="sign"></label></div>
+    <script type="py">
+        from pyscript import display
+        import random as nd
+
+        sign_list = ["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"]
+        planet_list = ["Moon","Sun","Jupiter","Saturn","Mars","Venus","Mercury","Pluto","Neptune","Uranus","Lahu","Ketu"]
+
+        def rollDie(*args):
+            house_np = nd.randint(1,12)
+            planet_np = nd.randint(0,11)
+            sign_np = nd.randint(0,11)
+
+            planet_data = planet_list[planet_np]
+            sign_data = sign_list[sign_np]
+            
+            display(house_np,target="house",append=False)
+            display(planet_data,target="planet",append=False)
+            display(sign_data,target="sign",append=False)
+   
+    </script>
+</body>
+</html>
