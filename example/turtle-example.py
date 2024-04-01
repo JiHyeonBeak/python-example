@@ -5,7 +5,11 @@ t.clearscreen()
 t.setup(700, 700)
 
 def draw():
-    t.dot(10,"red")
+    t.shape("turtle")
+    t.color("skyblue")
+    for j in range(100):
+        t.left(j)
+        t.forward(j)
 
-for i in range(1,70):
+for i in range(3):
     draw()
