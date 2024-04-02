@@ -7,9 +7,15 @@ t.setup(700, 700)
 def draw():
     t.shape("turtle")
     t.color("skyblue")
-    for j in range(100):
-        t.left(j)
-        t.forward(j)
+    for i in range(100):
+        t.left(3)
+        t.forward(5)
+        tPos = t.pos()
+        t.write(tPos)
+#        if tPos == "196.22,151.33":
+#            for j in range(5):
+#                t.forward(j)
+#        else:
+#            continue
 
-for i in range(3):
-    draw()
+draw()
