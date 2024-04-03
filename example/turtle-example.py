@@ -4,18 +4,19 @@ import turtle as t
 t.clearscreen()
 t.setup(700, 700)
 
-def draw():
-    t.shape("turtle")
-    t.color("skyblue")
-    for i in range(100):
-        t.left(3)
-        t.forward(5)
-        tPos = t.pos()
-        t.write(tPos)
-#        if tPos == "196.22,151.33":
-#            for j in range(5):
-#                t.forward(j)
-#        else:
-#            continue
+colors = ["red","green","skyblue","gray"]
 
+def settingTurtle():
+    for i in range(1,4):
+        globals()["t{}".format(i)] = t.Turtle()
+        globals()["t{}".format(i)].shape("turtle")
+        globals()["t{}".format(i)].turtlesize(2,2,2)
+        globals()["t{}".format(i)].color(colors[i])
+
+def draw():
+    for j in range(150):
+        t1.left(3)
+        t1.forward(10)
+
+settingTurtle()
 draw()
