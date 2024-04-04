@@ -7,16 +7,22 @@ t.setup(700, 700)
 colors = ["red","green","skyblue","gray"]
 
 def settingTurtle():
-    for i in range(1,4):
+    for i in range(4):
         globals()["t{}".format(i)] = t.Turtle()
         globals()["t{}".format(i)].shape("turtle")
-        globals()["t{}".format(i)].turtlesize(2,2,2)
+        globals()["t{}".format(i)].turtlesize(1,1,1)
         globals()["t{}".format(i)].color(colors[i])
 
 def draw():
-    for j in range(150):
-        t1.left(3)
-        t1.forward(10)
+    for j in range(117):
+        for k in range(4):
+            if k//2 == 1:
+                globals()["t{}".format(k)].left(3)
+                globals()["t{}".format(k)].forward(10)
+            else:
+                globals()["t{}".format(k)].right(3)
+                globals()["t{}".format(k)].forward(10)
+        
 
 settingTurtle()
 draw()
