@@ -5,10 +5,15 @@ QUESTION = ["책상 위 시계의 색상은?",
 ANSWER1 = ["파랑","셜록 홈즈의 귀환","3"]
 ANSWER2 = ["blue","return of Sherlock Holmes","three"]
 
+score = 0
+
 for i in range(3):
     print(QUESTION[i])
     ans = input()
     if ans == ANSWER1[i] or ans == ANSWER2[i]:
+        score += 1
         print("정답")
     else:
         print("오답")
+
+print("결과 :",score)
