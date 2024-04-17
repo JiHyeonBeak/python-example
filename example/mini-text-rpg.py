@@ -22,8 +22,13 @@ while(check):
     else:
         check = False    
         if place == "1":
+            place = "동굴"
             print("당신은 동굴로 향합니다.")
         elif place == "2":
+            place = "바다"
             print("당신은 바다로 향합니다.")
         else:
+            place = "숲"
             print("당신은 숲으로 향합니다.")
+
+print(name,"은(는)",place,"(으)로 갑니다.")
