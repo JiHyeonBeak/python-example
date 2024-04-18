@@ -11,6 +11,9 @@ name = input()
 print("당신의 직업을 맞춰보겠습니다...")
 print(name,"의 직업은",job[buffer_num],"입니다.")
 
+job = job[buffer_num]
+user = {'name':name,'job':job}
+
 print("당신을 집을 떠나 모험을 합니다. 어디로 갈까요?\n번호를 입력하세요.")
 print("1.동굴 2.바다 3.숲 ")
 place = input()
@@ -31,4 +34,9 @@ while(check):
             place = "숲"
             print("당신은 숲으로 향합니다.")
 
-print(name,"은(는)",place,"(으)로 갑니다.")
+print(user.get('name'),"은(는)",place,"(으)로 갑니다.")
+
+monster1 = {'name':"히드라",'hp':20}
+print(name,"은(는)",monster1.get('name'),"을(를) 만났습니다.\n 1.싸운다. 2.도망친다.")
+
+        
