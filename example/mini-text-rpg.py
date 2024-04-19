@@ -36,7 +36,10 @@ while(check):
 
 print(user.get('name'),"은(는)",place,"(으)로 갑니다.")
 
-monster1 = {'name':"히드라",'hp':20}
+monster1 = {'name':"히드라",'hp':20,'mp':0}
+monster2 = {'name':"파란문어",'hp':30,'mp':15}
+monster3 = {'name':"수액박쥐",'hp':20,'mp':5}
+
 print(name,"은(는)",monster1.get('name'),"을(를) 만났습니다.\n 1.싸운다. 2.도망친다.")
 
         
