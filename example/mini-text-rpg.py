@@ -3,13 +3,32 @@ import random as r
 buffer_num = r.randrange(3)
 #answers = ["1","2","3"]
 check = True
-job = ["궁수","상인","마법사","격투가"]
+job = [{
+    'name':'궁수',
+    'hp':30,
+    'mp':5
+    },{
+    'name':'마법사',
+    'hp':15,
+    'mp':30
+    },
+    {
+    'name':'격투가',
+    'hp':40,
+    'mp':0
+    },
+    {
+    'name':'상인',
+    'hp':20,
+    'mp':10
+    }
+    ]
 
 print("당신의 이름은?")
 name = input()
 
 print("당신의 직업을 맞춰보겠습니다...")
-print(name,"의 직업은",job[buffer_num],"입니다.")
+print(name,"의 직업은",job[buffer_num].get('name'),"입니다.")
 
 job = job[buffer_num]
 user = {'name':name,'job':job}
