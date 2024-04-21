@@ -54,11 +54,51 @@ while(check):
             print("당신은 숲으로 향합니다.")
 
 print(user.get('name'),"은(는)",place,"(으)로 갑니다.")
+check = True
 
-monster1 = {'name':"히드라",'hp':20,'mp':0}
-monster2 = {'name':"파란문어",'hp':30,'mp':15}
-monster3 = {'name':"수액박쥐",'hp':20,'mp':5}
+monster_list1 = [{'name':"히드라",'hp':20,'mp':0},{'name':"파란문어",'hp':30,'mp':15},{'name':"수액박쥐",'hp':20,'mp':5}]
+buffer_num = r.randrange(2)
 
-print(name,"은(는)",monster1.get('name'),"을(를) 만났습니다.\n 1.싸운다. 2.도망친다.")
+monster = monster_list1[buffer_num]
+
+print(name,"은(는)",monster.get('name'),"을(를) 만났습니다.\n 1.싸운다. 2.도망친다.")
+answer = input()
+
+def roll_the_dice():
+    return r.randrange(1,6)
+
+def battle(m,u,a):
+    while u.get('job').get('hp') > 0 and m.get('hp') > 0:
+        marked = r.randrange(1,6)
+        if a == "1":
+            if marked > 3:
+                print("공격에 성공합니다. \n데미지 4")
+                m['hp'] = m.get('hp') - 4
+                print('나의 남은 체력 :',u.get('job').get('hp'))
+                print('몬스터의 남은 체력 :',m.get('hp'),"\n")
+            else:
+                print(m.get('name'),"가(이) 공격합니다. \n데미지 2")
+                u['job']['hp'] = u.get('job').get('hp') - 2
+                print('나의 남은 체력 :',u.get('job').get('hp'))
+                print('몬스터의 남은 체력 :',m.get('hp'),"\n")
+        else:
+            if marked > 3:
+                return print("무사히 도망쳤습니다.")
+            else:
+                print("도망에 실패했습니다.")
+                a = 1
+    if(u.get('job').get('hp') <= 0):
+        print("당신은 쓰러졌습니다.")
+    elif(m.get('hp') <= 0):
+        print("당신은",m.get('name'),"을(를) 처치했습니다.")
+
+
+while(check):
+    if answer not in ["1","2"]:
+        print("지정된 번호로 입력해주세요.\n1.싸운다. 2.도망친다.")
+        answer = input()
+    else:
+        check = False
+        battle(monster,user,answer)
 
         
