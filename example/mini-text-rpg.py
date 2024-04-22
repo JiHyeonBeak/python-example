@@ -86,7 +86,7 @@ def battle(m,u,a):
                 return print("무사히 도망쳤습니다.")
             else:
                 print("도망에 실패했습니다.")
-                a = 1
+                a = "1"
     if(u.get('job').get('hp') <= 0):
         print("당신은 쓰러졌습니다.")
     elif(m.get('hp') <= 0):
