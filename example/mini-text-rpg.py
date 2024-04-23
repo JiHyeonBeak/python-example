@@ -75,14 +75,14 @@ answer = input()
 def roll_the_dice():
     return r.randrange(1,6)
 
-def getItem(m):
-    chance = roll_the_dice()
-    if user.get('job').get('luck') > 10:
-        chance += 1
-    if chance > 3:
-        m.get('item')
-    else:
-    return 
+# def getItem(m):
+#     chance = roll_the_dice()
+#     if user.get('job').get('luck') > 10:
+#         chance += 1
+#     if chance > 3:
+#         m.get('item')
+#     else:
+#     return 
 
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
@@ -108,8 +108,10 @@ def battle(m,u,a):
                 a = "1"
     if(u.get('job').get('hp') <= 0):
         print("당신은 쓰러졌습니다.\n 게임 오버")
+        exit()
     elif(m.get('hp') <= 0):
         print("당신은",m.get('name'),"을(를) 처치했습니다.")
+        return
 
 while(check):
     if answer not in ["1","2"]:
@@ -118,5 +120,7 @@ while(check):
     else:
         check = False
         battle(monster,user,answer)
+
+print("다음 스테이지를 진행합니다...")
 
         
