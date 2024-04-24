@@ -12,7 +12,7 @@ job = [{
     'name':'마법사',
     'hp':15,
     'mp':30,
-    'luck':10
+    'luck':13
     },
     {
     'name':'격투가',
@@ -83,6 +83,13 @@ def roll_the_dice():
 #         m.get('item')
 #     else:
 #     return 
+
+# def get_damage(userJob):
+#     job = userJob.get('name')
+#     if job == '마법사':
+        
+#     else:
+
 
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
