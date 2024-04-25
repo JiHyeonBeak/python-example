@@ -7,24 +7,28 @@ job = [{
     'name':'궁수',
     'hp':30,
     'mp':5,
-    'luck':10
+    'luck':10,
+    'int':3
     },{
     'name':'마법사',
     'hp':15,
     'mp':30,
-    'luck':13
+    'luck':13,
+    'int':10
     },
     {
     'name':'격투가',
     'hp':40,
     'mp':0,
-    'luck':8
+    'luck':8,
+    'int':3
     },
     {
     'name':'상인',
     'hp':20,
     'mp':10,
-    'luck':15
+    'luck':15,
+    'int':8
     }
     ]
 
@@ -86,8 +90,9 @@ def roll_the_dice():
 
 # def get_damage(userJob):
 #     job = userJob.get('name')
+#     damage = 0
 #     if job == '마법사':
-        
+#         damage = round(userJob.get('int')/3)
 #     else:
 
 
