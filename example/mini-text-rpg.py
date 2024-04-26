@@ -8,27 +8,31 @@ job = [{
     'hp':30,
     'mp':5,
     'luck':10,
-    'int':3
+    'int':3,
+    'str':8
     },{
     'name':'마법사',
     'hp':15,
     'mp':30,
     'luck':13,
-    'int':10
+    'int':10,
+    'str':2
     },
     {
     'name':'격투가',
     'hp':40,
     'mp':0,
     'luck':8,
-    'int':3
+    'int':3,
+    'str':15
     },
     {
     'name':'상인',
     'hp':20,
     'mp':10,
     'luck':15,
-    'int':8
+    'int':8,
+    'str':5
     }
     ]
 
@@ -88,21 +92,24 @@ def roll_the_dice():
 #     else:
 #     return 
 
-# def get_damage(userJob):
-#     job = userJob.get('name')
-#     damage = 0
-#     if job == '마법사':
-#         damage = round(userJob.get('int')/3)
-#     else:
-
+def get_damage(userJob,dice):
+    job = userJob.get('name')
+    damage = 0
+    if job == '마법사':
+        damage = round(userJob.get('int')/3)
+    else:
+        damage = round(userJob.get('str')/3)
+    damage = damage + round(dice*0.3)
+    return damage;
 
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
         marked = roll_the_dice()
+        damage = get_damage(u.get('job'),marked)
         if a == "1":
             if marked > 3:
-                print("공격에 성공합니다. \n데미지 4")
-                m['hp'] = m.get('hp') - 4
+                print("공격에 성공합니다. \n데미지",damage)
+                m['hp'] = m.get('hp') - damage
                 print('나의 남은 체력 :',u.get('job').get('hp'))
                 print('몬스터의 남은 체력 :',m.get('hp'),"\n")
                 input("진행하려면 Enter")
@@ -134,5 +141,6 @@ while(check):
         battle(monster,user,answer)
 
 print("다음 스테이지를 진행합니다...")
+input("진행하려면 Enter\n")
 
         
