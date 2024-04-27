@@ -92,7 +92,7 @@ def roll_the_dice():
 #     else:
 #     return 
 
-def get_damage(userJob,dice):
+def calc_damage(userJob,dice):
     job = userJob.get('name')
     damage = 0
     if job == '마법사':
@@ -105,7 +105,7 @@ def get_damage(userJob,dice):
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
         marked = roll_the_dice()
-        damage = get_damage(u.get('job'),marked)
+        damage = calc_damage(u.get('job'),marked)
         if a == "1":
             if marked > 3:
                 print("공격에 성공합니다. \n데미지",damage)
