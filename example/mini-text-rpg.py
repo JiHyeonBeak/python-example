@@ -71,8 +71,8 @@ print(user.get('name'),"은(는)",place,"(으)로 갑니다.")
 check = True
 
 monster_list1 = [{'name':"히드라",'hp':20,'mp':0,'item':{'1':'히드라의 눈알','2':'비늘'}},
-                 {'name':"파란문어",'hp':30,'mp':15,'item':{'1':'문어 다리'}},
-                 {'name':"수액박쥐",'hp':20,'mp':5,'item':{'1':'혈액'}}]
+                 {'name':"파란문어",'hp':30,'mp':15,'item':{'1':'문어 다리','2':'혈액'}},
+                 {'name':"수액박쥐",'hp':20,'mp':5,'item':{'1':'혈액','2':'박쥐 이빨'}}]
 buffer_num = r.randrange(2)
 
 monster = monster_list1[buffer_num]
@@ -101,6 +101,10 @@ def calc_damage(userJob,dice):
         damage = round(userJob.get('str')/3)
     damage = damage + round(dice*0.3)
     return damage;
+
+def into_town():
+    print("마을에 도착했습니다. 무엇을 하시겠습니까?\n")
+    input("1.상점\n2.마을 사람과 대화\n3.떠난다.\n")
 
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
@@ -143,4 +147,9 @@ while(check):
 print("다음 스테이지를 진행합니다...")
 input("진행하려면 Enter\n")
 
-        
+if (place == "바다"):
+    print("바다 궁전이 보입니다.\n접근해봅니다.")
+else:
+    print("마을이 보입니다. \n들어갑니다.")
+into_town()
+
