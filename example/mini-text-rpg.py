@@ -102,9 +102,25 @@ def calc_damage(userJob,dice):
     damage = damage + round(dice*0.3)
     return damage;
 
+def into_shop():
+    print("어서오세요. 무엇을 구매하시겠습니까?")
+    input("1. 체력포션\n2. 마나포션\n")
+
 def into_town():
     print("마을에 도착했습니다. 무엇을 하시겠습니까?\n")
-    input("1.상점\n2.마을 사람과 대화\n3.떠난다.\n")
+    answer = input("1.상점\n2.마을 사람과 대화\n3.떠난다.\n")
+    check = True
+    while(check):
+        if answer not in ["1","2","3"]:
+            answer = input("지정된 번호로 입력해주세요.\n1.상점 2.마을 사람과 대화\n3.떠난다\n")
+        else:
+            check = False
+    if answer == "1":
+        into_shop()
+    elif answer == "2":
+        print("이 마을 사람들은 모두가 바빠보입니다.")
+    else:
+        return
 
 def battle(m,u,a):
     while u.get('job').get('hp') > 0 and m.get('hp') > 0:
@@ -147,9 +163,6 @@ while(check):
 print("다음 스테이지를 진행합니다...")
 input("진행하려면 Enter\n")
 
-if (place == "바다"):
-    print("바다 궁전이 보입니다.\n접근해봅니다.")
-else:
-    print("마을이 보입니다. \n들어갑니다.")
+print("마을이 보입니다. \n들어갑니다.")
 into_town()
 
